@@ -2,11 +2,16 @@ FROM node:20
 
 WORKDIR /app
 
-COPY frontend/package*.json ./
+
+COPY package*.json ./
 RUN npm install
 
-COPY frontend ./
 
+COPY . .
+
+
+WORKDIR /app/frontend
+RUN npm install
 RUN npm run build
 
 RUN npm install -g serve
