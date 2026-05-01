@@ -37,15 +37,12 @@ app.get("/", (req, res) => {
 
 
 // ✅ MongoDB Connection
-mongoose.connect(process.env.MONGO_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
-.then(() => console.log("MongoDB Connected ✅"))
-.catch(err => {
-  console.error("MongoDB ERROR ❌:", err.message);
-  process.exit(1);
-});
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log("MongoDB Connected ✅"))
+  .catch(err => {
+    console.error("MongoDB ERROR ❌:", err.message);
+    process.exit(1);
+  });
 
 
 // ✅ Global Error Handler (important)
