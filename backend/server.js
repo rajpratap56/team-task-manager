@@ -9,15 +9,8 @@ require("dotenv").config();
 
 const app = express();
 
-// ✅ CORS FIX (IMPORTANT)
-app.use(cors({
-  origin: "*",
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"]
-}));
-
-// ✅ Preflight request handle
-app.options("*", cors());
+// ✅ SIMPLE & SAFE CORS
+app.use(cors());
 
 // Middleware
 app.use(express.json());
@@ -28,23 +21,23 @@ app.use("/api/tasks", taskRoutes);
 app.use("/api/projects", projectRoutes);
 app.use("/api/users", userRoutes);
 
-// MongoDB Connection
+// MongoDB
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected ✅"))
   .catch(err => console.log("ERROR:", err));
 
-// Test Route
+// Test
 app.get("/", (req, res) => {
   res.send("Backend is running 🚀");
 });
 
-// Error Handler
+// Error handler
 app.use((err, req, res, next) => {
   console.error(err);
   return res.status(500).json({ message: "Internal Server Error" });
 });
 
-// Server start
+// Start
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
