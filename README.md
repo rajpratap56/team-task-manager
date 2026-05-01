@@ -31,6 +31,22 @@ This application helps teams manage projects, assign tasks, and track progress e
 **Database:**
 - MongoDB (Atlas)
 
+- 🔐 Demo Credentials
+Email: rajprayap@gmail.com
+Password: @Raj12
+
+🚀 Deployment
+Frontend deployed on Netlify
+Backend deployed on Railway
+Database hosted on MongoDB Atlas
+
+📌 Project Highlights
+Full-stack MERN application
+Secure authentication using JWT
+RESTful API architecture
+Real-time data handling with MongoDB
+Production deployment (Netlify + Railway)
+
 ---
 
 ## 📸 Screenshots
